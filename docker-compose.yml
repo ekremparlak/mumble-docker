@@ -10,7 +10,11 @@ services:
       - 50051:50051/tcp
   mumbleweb:
     image: ghcr.io/ekremparlak/mumble-web
+    ports:
+      - 127.0.0.1:8080:80
   mumblewebproxy:
     image: ghcr.io/ekremparlak/mumble-web-proxy
+    ports:
+      - 127.0.0.1:64737:64737
 volumes:
   murmur_data:
