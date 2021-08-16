@@ -1,0 +1,20 @@
+version: "3.3"
+services: 
+  murmur:
+    image: ghcr.io/ekremparlak/murmur:1.3
+    volumes: 
+      - murmur_data:/var/lib/murmur
+    ports:
+      - 64738:64738/udp
+      - 64738:64738/tcp
+      - 50051:50051/tcp
+  mumbleweb:
+    image: ghcr.io/ekremparlak/murmur-web
+    ports:
+      - 127.0.0.1:8080:80
+  mumblewebproxy:
+    image: ghcr.io/ekremparlak/murmur-web-proxy
+    ports:
+      - 127.0.0.1:64737:64737
+volumes:
+  murmur_data:
