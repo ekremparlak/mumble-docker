@@ -57,4 +57,11 @@ jobs:
         --platform linux/amd64,linux/arm64 \
         --tag ghcr.io/$GITHUB_ACTOR/mumble-web-proxy:latest --push
 
+    - name: Build mumble-discord-bridge
+      run: | 
+        docker build mumble-discord-bridge -f mumble-discord-bridge/Dockerfile \
+        --platform linux/amd64,linux/arm64 \
+        --tag ghcr.io/$GITHUB_ACTOR/mumble-discord-bridge:latest --push
+
+
       
