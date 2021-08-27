@@ -16,5 +16,14 @@ services:
     image: ghcr.io/ekremparlak/mumble-web-proxy
     ports:
       - 127.0.0.1:64737:64737
+  mumble-discord-bridge:
+    image: stieneee/mumble-discord-bridge
+    restart: unless-stopped
+    environment:
+      - MUMBLE_ADDRESS=murmur
+      - MUMBLE_INSECURE=true
+      - DISCORD_TOKEN=token
+      - DISCORD_GID=gid
+      - DISCORD_CID=cid
 volumes:
   murmur_data:
