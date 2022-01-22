@@ -2,8 +2,8 @@ FROM golang:1.16 as builder
 RUN apt update && apt install -y libopus-dev
 RUN git clone https://github.com/Stieneee/mumble-discord-bridge.git /tmp/mumble-discord-bridge
 WORKDIR /tmp/mumble-discord-bridge
-RUN curl -sfL https://install.goreleaser.com/github.com/goreleaser/goreleaser.sh | sh
-RUN ./bin/goreleaser build --skip-validate --single-target
+RUN go install github.com/goreleaser/goreleaser@main
+RUN goreleaser build --skip-validate --single-target
 
 
 FROM debian:10-slim
