@@ -1,5 +1,5 @@
 FROM debian:11-slim as builder
-ARG MUMBLE_VERSION=v1.4.x
+ARG MUMBLE_VERSION=1.4.x
 RUN apt-get update && apt-get install -y \
         build-essential \
         pkg-config \
